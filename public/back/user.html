@@ -17,7 +17,7 @@
           <p>超级管理员</p>
         </a>
         <ul>
-          <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+          <li><a href="user.html" class="active"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
           <li>
             <a href="#" class="cate">
               <i class="glyphicon glyphicon-list"></i><span>分类管理</span>
@@ -41,14 +41,48 @@
               <li><a href="index.html">管理系统</a></li>
               <li class="active">用户管理</li>
           </ol>
-          <!-- 数据可视化，柱状图和饼状图 -->
-          <div class="echarts">
-            <div class="echarts-left pull-left"></div>
-            <div class="echarts-right pull-right"></div>
+          <!-- table -->
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>				
+                <th>序号</th>
+                <th>用户名</th>
+                <th>手机号</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 挖个坑 -->
+            </tbody>
+          </table>
+          <!-- 分页标签 -->
+          <div class="text-right">
+            <ul id="paginator"></ul>
           </div>
         </div>
       </div>
   </div>
+<!-- 查询渲染数据的模板引擎 -->
+<script type='text/html' id="queryTmp">
+  {{ each rows v i }}
+    <tr>				
+      <td>{{i+1}}</td>
+      <td>{{v.username}}</td>
+      <td>{{v.mobile}}</td>
+      <td>{{v.isDelete===1?'正常':'禁用'}}</td>
+      <td data-id='{{v.id}}'>
+        {{ if v.isDelete===1}}
+        <button class="btn btn-danger">禁用</button>
+        {{ else }}
+        <button class="btn btn-success">正常</button>
+        {{ /if }}
+      </td>
+    </tr>
+  {{ /each }}
+</script>
+
+
 
 <!-- 隐藏的模态框 -->
 <div class="modal fade" id="logoutModal">
@@ -67,14 +101,36 @@
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+</div><!-- /.modal -->
+<!-- 切换模态框 -->
+<div class="modal fade" id="Modal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要执行此操作吗？</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="sureout">确定</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 
   <!-- 后台管理系统 -->
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
-  <!-- 引入echarts -->
-  <script src="./lib/echarts/echarts.min.js"></script>
+  <!-- 引入模板引擎 -->
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <!-- 引入分页 -->
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./js/commen.js"></script>
-  <script src="./js/index.js"></script>
+  <script src="./js/user.js"></script>
 </body>
 </html>
