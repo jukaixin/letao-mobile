@@ -1,0 +1,40 @@
+.lt_nav {
+  padding: 10px;
+}
+.lt_nav li {
+  float: left;
+  width: 33.3%;
+}
+
+/* 商品区域 */
+.it_product {
+  padding: 10px;
+}
+.it_product li {
+  float: left; 
+  width: 48%;
+  margin-bottom: 10px;
+}
+.it_product li:nth-child(odd) {
+  margin-right: 4%;
+}
+.it_product li a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.it_product li img {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+}
+.it_product .price {
+  color: red;
+  margin-right: 5px;
+}
+.it_product .oldPrice {
+  text-decoration: line-through;
+}
