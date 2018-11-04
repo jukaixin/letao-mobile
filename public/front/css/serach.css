@@ -1,0 +1,47 @@
+
+.lt_main {
+  padding: 10px;
+}
+.lt_main .btn-input {
+  border-radius: 5px;
+  border: 1px solid #007aff;
+  font-size: 12px;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+}
+.lt_main .btn-serach {
+  height: 32px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 0 5px 5px 0;
+}
+.lt_main .lt-title {
+  height: 30px;
+  font-size: 12px;
+  color: #666;
+}
+.lt_main .lt-content ul {
+  border: 1px dashed red;
+}
+.lt_main .lt-content li {
+  border-bottom: 1px dashed red;
+  height: 30px;
+  line-height: 30px;
+  
+}
+/* 图标自带的默认一倍，想要设置其行高，覆盖即可 */
+.lt_main .lt-content li i {
+  line-height: 30px;
+}
+.lt_main .lt-content li:last-child {
+  border-bottom: none;
+}
+.lt_main .lt-content li a {
+  display: block;
+  padding-left: 10px;
+  font-size: 12px;
+}
+
+
